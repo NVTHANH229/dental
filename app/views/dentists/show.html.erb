@@ -1,0 +1,41 @@
+<div class="max-w-3xl mx-auto px-4">
+  <div class="flex items-center justify-between">
+    <h1 class="flex-1 font-bold text-3xl">Dentist</h1>
+
+    <div class="flex-wrap lg:flex items-center lg:space-x-3">
+      <%= link_to dentists_path, class: button_class(theme: "transparent") do %>
+      All Dentists
+      <% end %>
+      <%= link_to edit_dentist_path(@dentist), class: button_class(theme:"primary") do %>
+      Edit
+      <% end %>
+    </div>
+  </div>
+
+  <ul class="text-slate-700">
+      <li>
+        <p class="font-semibold">Name:</p>
+        <p><%= @dentist.name %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Phone:</p>
+        <p><%= @dentist.phone %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Adress:</p>
+        <p><%= @dentist.adress %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Degree:</p>
+        <p><%= @dentist.degree %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Experience:</p>
+        <p><%= @dentist.experience %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Room:</p>
+        <p><%= @dentist.room.room_name %></p>
+      </li>
+  </ul>
+</div>

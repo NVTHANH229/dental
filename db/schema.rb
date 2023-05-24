@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_24_100009) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_24_100145) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -49,6 +49,31 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_24_100009) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "appointments", force: :cascade do |t|
+    t.integer "dentist_id", null: false
+    t.integer "patient_id", null: false
+    t.string "treatment"
+    t.datetime "date", precision: nil
+    t.integer "quantity"
+    t.string "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dentist_id"], name: "index_appointments_on_dentist_id"
+    t.index ["patient_id"], name: "index_appointments_on_patient_id"
+  end
+
+  create_table "dentists", force: :cascade do |t|
+    t.string "name"
+    t.integer "phone"
+    t.string "adress"
+    t.string "degree"
+    t.string "experience"
+    t.integer "room_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_dentists_on_room_id"
+  end
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -58,6 +83,35 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_24_100009) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "patients", force: :cascade do |t|
+    t.string "name"
+    t.datetime "dob", precision: nil
+    t.string "email"
+    t.string "gender"
+    t.string "blood"
+    t.string "phone_number"
+    t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "prescriptions", force: :cascade do |t|
+    t.datetime "presdate", precision: nil
+    t.integer "dentist_id", null: false
+    t.integer "patient_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dentist_id"], name: "index_prescriptions_on_dentist_id"
+    t.index ["patient_id"], name: "index_prescriptions_on_patient_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string "room_name"
+    t.string "floor"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -77,4 +131,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_24_100009) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "appointments", "dentists"
+  add_foreign_key "appointments", "patients"
+  add_foreign_key "dentists", "rooms"
+  add_foreign_key "prescriptions", "dentists"
+  add_foreign_key "prescriptions", "patients"
 end

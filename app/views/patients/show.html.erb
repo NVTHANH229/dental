@@ -1,0 +1,45 @@
+<div class="max-w-3xl mx-auto px-4">
+  <div class="flex items-center justify-between">
+    <h1 class="flex-1 font-bold text-3xl">Patient</h1>
+
+    <div class="flex-wrap lg:flex items-center lg:space-x-3">
+      <%= link_to patients_path, class: button_class(theme: "transparent") do %>
+      All Patients
+      <% end %>
+      <%= link_to edit_patient_path(@patient), class: button_class(theme:"primary") do %>
+      Edit
+      <% end %>
+    </div>
+  </div>
+
+  <ul class="text-slate-700">
+      <li>
+        <p class="font-semibold">Name:</p>
+        <p><%= @patient.name %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Dob:</p>
+        <p><%= @patient.dob %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Email:</p>
+        <p><%= @patient.email %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Gender:</p>
+        <p><%= @patient.gender %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Blood:</p>
+        <p><%= @patient.blood %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Phone number:</p>
+        <p><%= @patient.phone_number %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Address:</p>
+        <p><%= @patient.address %></p>
+      </li>
+  </ul>
+</div>

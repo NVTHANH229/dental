@@ -1,0 +1,36 @@
+<%= form_with(model: prescription) do |form| %>
+<% if prescription.errors.any? %>
+<div id="error_explanation" class="bg-red-50 p-6 rounded text-red-800">
+  <h2 class="text-lg font-semibold mb-3"><%= pluralize(prescription.errors.count, "error") %> prohibited this prescription from being saved:</h2>
+
+  <ul class="list-disc leading-relaxed">
+    <% prescription.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+  <div class="mb-6">
+        <%= form.label :presdate, class: label_class %>
+          <%= form.datetime_field :presdate, class: input_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :dentist_id, class: label_class %>
+        <%= form.select :dentist_id, options_from_collection_for_select(
+          Dentist.all, 'id', 'name', selected = appointment.dentist_id), class: label_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :patient_id, class: label_class %>
+        <%= form.select :patient_id, options_from_collection_for_select(
+          Patient.all, 'id', 'name', selected = appointment.patient_id), class: label_class %>
+      </div>
+
+<%= form.submit class: button_class(theme: 'primary') %>
+
+<% if prescription.persisted? %>
+<%= link_to "Cancel", prescription, class: "text-neutral-700 underline inline-block ml-3" %>
+<% else %>
+<%= link_to "Cancel", prescriptions_path, class:  "text-neutral-700 underline inline-block ml-3" %>
+<% end %>
+<% end %>
