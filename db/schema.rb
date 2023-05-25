@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_24_100145) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_25_125226) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -52,9 +52,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_24_100145) do
   create_table "appointments", force: :cascade do |t|
     t.integer "dentist_id", null: false
     t.integer "patient_id", null: false
-    t.string "treatment"
     t.datetime "date", precision: nil
-    t.integer "quantity"
+    t.string "fee"
     t.string "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

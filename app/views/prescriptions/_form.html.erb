@@ -18,12 +18,12 @@
   <div class="mb-6">
         <%= form.label :dentist_id, class: label_class %>
         <%= form.select :dentist_id, options_from_collection_for_select(
-          Dentist.all, 'id', 'name', selected = appointment.dentist_id), class: label_class %>
+          Dentist.all, 'id', 'name', selected = prescription.dentist_id), class: label_class %>
       </div>
   <div class="mb-6">
         <%= form.label :patient_id, class: label_class %>
         <%= form.select :patient_id, options_from_collection_for_select(
-          Patient.all, 'id', 'name', selected = appointment.patient_id), class: label_class %>
+          Patient.all, 'id', 'name', selected = prescription.patient_id), class: label_class %>
       </div>
 
 <%= form.submit class: button_class(theme: 'primary') %>

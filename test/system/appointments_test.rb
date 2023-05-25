@@ -16,10 +16,9 @@ class AppointmentsTest < ApplicationSystemTestCase
 
     fill_in "Date", with: @appointment.date
     fill_in "Dentist", with: @appointment.dentist_id
+    fill_in "Fee", with: @appointment.fee
     fill_in "Note", with: @appointment.note
     fill_in "Patient", with: @appointment.patient_id
-    fill_in "Quantity", with: @appointment.quantity
-    fill_in "Treatment", with: @appointment.treatment
     click_on "Create Appointment"
 
     assert_text "Appointment was successfully created"
@@ -32,10 +31,9 @@ class AppointmentsTest < ApplicationSystemTestCase
 
     fill_in "Date", with: @appointment.date
     fill_in "Dentist", with: @appointment.dentist_id
+    fill_in "Fee", with: @appointment.fee
     fill_in "Note", with: @appointment.note
     fill_in "Patient", with: @appointment.patient_id
-    fill_in "Quantity", with: @appointment.quantity
-    fill_in "Treatment", with: @appointment.treatment
     click_on "Update Appointment"
 
     assert_text "Appointment was successfully updated"

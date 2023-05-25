@@ -3,15 +3,13 @@
 one:
   dentist: one
   patient: one
-  treatment: MyString
-  date: 2023-05-24 17:01:35
-  quantity: 1
+  date: 2023-05-25 19:52:26
+  fee: MyString
   note: MyString
 
 two:
   dentist: two
   patient: two
-  treatment: MyString
-  date: 2023-05-24 17:01:35
-  quantity: 1
+  date: 2023-05-25 19:52:26
+  fee: MyString
   note: MyString
