@@ -17,7 +17,7 @@ class DentistsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create dentist" do
     assert_difference("Dentist.count") do
-      post dentists_url, params: { dentist: { adress: @dentist.adress, degree: @dentist.degree, experience: @dentist.experience, name: @dentist.name, phone: @dentist.phone, room_id: @dentist.room_id } }
+      post dentists_url, params: { dentist: { degree: @dentist.degree, experience: @dentist.experience, name: @dentist.name, phone: @dentist.phone, room_id: @dentist.room_id } }
     end
 
     assert_redirected_to dentist_url(Dentist.last)
@@ -34,7 +34,7 @@ class DentistsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update dentist" do
-    patch dentist_url(@dentist), params: { dentist: { adress: @dentist.adress, degree: @dentist.degree, experience: @dentist.experience, name: @dentist.name, phone: @dentist.phone, room_id: @dentist.room_id } }
+    patch dentist_url(@dentist), params: { dentist: { degree: @dentist.degree, experience: @dentist.experience, name: @dentist.name, phone: @dentist.phone, room_id: @dentist.room_id } }
     assert_redirected_to dentist_url(@dentist)
   end
 

@@ -14,7 +14,6 @@ class DentistsTest < ApplicationSystemTestCase
     visit dentists_url
     click_on "New dentist"
 
-    fill_in "Adress", with: @dentist.adress
     fill_in "Degree", with: @dentist.degree
     fill_in "Experience", with: @dentist.experience
     fill_in "Name", with: @dentist.name
@@ -30,7 +29,6 @@ class DentistsTest < ApplicationSystemTestCase
     visit dentist_url(@dentist)
     click_on "Edit this dentist", match: :first
 
-    fill_in "Adress", with: @dentist.adress
     fill_in "Degree", with: @dentist.degree
     fill_in "Experience", with: @dentist.experience
     fill_in "Name", with: @dentist.name

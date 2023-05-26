@@ -65,6 +65,6 @@ class DentistsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def dentist_params
-      params.require(:dentist).permit(:name, :phone, :adress, :degree, :experience, :room_id)
+      params.require(:dentist).permit(:name, :phone, :degree, :experience, :room_id)
     end
 end
